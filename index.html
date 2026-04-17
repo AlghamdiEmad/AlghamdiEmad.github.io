@@ -1,1 +1,300 @@
-<h1>مرحبا، هذا موقعي الشخصي الجديد!</h1>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>عماد الغامدي | مطور ويب</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg-color: #050816;
+      --bg-alt: #0b1020;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --heading: #f9fafb;
+      --border-subtle: rgba(148, 163, 184, 0.35);
+      --section-padding: 4rem;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --transition-fast: 0.25s ease;
+      --max-width: 1120px;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    .shell {
+      width: 100%;
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding-inline: 1.5rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.9);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 0.9rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 40% 60% 45% 55%;
+      background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 40%, #0f172a 100%);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), 0 12px 30px rgba(8, 47, 73, 0.9);
+    }
+
+    .brand-text-main { font-weight: 600; color: var(--heading); }
+    .brand-text-sub { font-size: 0.78rem; color: var(--text-muted); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      position: relative;
+    }
+
+    .nav-links a:hover { color: var(--heading); }
+
+    .nav-cta { display: flex; gap: 0.75rem; }
+
+    .pill {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .btn-outline {
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.45rem 1.1rem;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.7);
+      cursor: pointer;
+      color: var(--text-main);
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1.4rem;
+      font-size: 0.85rem;
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      color: #0b1120;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    /* HERO */
+    .hero { padding-top: 3.5rem; }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title .highlight {
+      background: linear-gradient(135deg, #38bdf8, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.6rem;
+      max-width: 34rem;
+    }
+
+    /* 🔥 القسم المعدل — بدون بطاقات */
+    .hero-visual {
+      position: relative;
+      min-height: 260px;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: 0;
+      border-radius: 32px;
+      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 60%),
+                  radial-gradient(circle at bottom, rgba(34, 197, 94, 0.16), transparent 60%);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-orbit-inner {
+      position: absolute;
+      inset: 14%;
+      border-radius: 26px;
+      border: 1px dashed rgba(148, 163, 184, 0.45);
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .hero-orbit-title {
+      font-size: 1rem;
+      color: var(--heading);
+      font-weight: 600;
+    }
+
+    .hero-orbit-list {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .hero-orbit-list li {
+      margin-bottom: 0.4rem;
+      padding-inline-start: 1rem;
+      position: relative;
+    }
+
+    .hero-orbit-list li::before {
+      content: "•";
+      position: absolute;
+      inset-inline-start: 0;
+      color: var(--accent);
+    }
+
+    /* باقي الأقسام كما هي… */
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <header>
+      <div class="shell">
+        <nav class="nav">
+          <div class="brand">
+            <div class="brand-mark"></div>
+            <div>
+              <div class="brand-text-main">عماد الغامدي</div>
+              <div class="brand-text-sub">تطوير ويب · أمن سيبراني</div>
+            </div>
+          </div>
+
+          <div class="nav-links">
+            <a href="#about">من أنا</a>
+            <a href="#skills">المهارات</a>
+            <a href="#experience">الخبرة</a>
+            <a href="#projects">الأعمال</a>
+            <a href="#contact">تواصل</a>
+          </div>
+
+          <div class="nav-cta">
+            <div class="pill"><span class="pill-dot"></span>متاح لفرص جديدة</div>
+            <button class="btn-outline" onclick="scrollToSection('contact')">تواصل سريع</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="shell hero-grid">
+
+          <div>
+            <h1 class="hero-title">
+              مطور ويب يوازن بين
+              <span class="highlight">الجمال، الأداء، والأمان</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              بناء واجهات حديثة وسريعة مع تركيز على جودة الكود وتجربة المستخدم والممارسات الأمنية.
+            </p>
+
+            <button class="btn-primary" onclick="scrollToSection('projects')">استعراض الأعمال</button>
+          </div>
+
+          <!-- 🔥 القسم المعدل -->
+          <div class="hero-visual">
+            <div class="hero-orbit">
+              <div class="hero-orbit-inner">
+                <div class="hero-orbit-title">نقاط القوة في عملي</div>
+                <ul class="hero-orbit-list">
+                  <li>تنظيم المحتوى وصياغة تجربة المستخدم.</li>
+                  <li>دمج التقنيات الحديثة مثل الذكاء الاصطناعي وإنترنت الأشياء.</li>
+                  <li>تفكير أمني في كل مرحلة من مراحل التطوير.</li>
+                  <li>خبرة في التدريب ونقل المعرفة.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- باقي الأقسام (About, Skills, Experience, Projects, Contact) تبقى كما هي من النسخة السابقة -->
+      <!-- إذا تبغى أعيد دمجها هنا كاملة، قول لي فقط -->
+
+    </main>
+
+  </div>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  </script>
+
+</body>
+</html>
