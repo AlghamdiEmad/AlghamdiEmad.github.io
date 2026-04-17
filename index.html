@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <title>عماد الغامدي | مطور ويب</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="سيرة ذاتية تفاعلية لعماد الغامدي، مطور ويب مهتم بالحاسب والأمن السيبراني." />
+  <link rel="icon" type="image/png" href="https://i.postimg.cc/Bb84rrPN/IMG-0476.png" />
+
+  <!-- Inter font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
     :root {
       --bg-color: #050816;
@@ -18,7 +26,7 @@
       --radius-lg: 18px;
       --radius-pill: 999px;
       --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.85);
-      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-main: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --transition-fast: 0.25s ease;
       --max-width: 1120px;
     }
@@ -31,10 +39,10 @@
 
     body {
       font-family: var(--font-main);
-      background: radial-gradient(circle at top, #0f172a 0, #020617 55%, #000 100%);
+      background: radial-gradient(circle at top, #0f172a 0, var(--bg-color) 55%);
       color: var(--text-main);
+      min-height: 100vh;
       line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
     }
 
     a {
@@ -48,69 +56,59 @@
     }
 
     .page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .shell {
-      width: 100%;
       max-width: var(--max-width);
       margin: 0 auto;
-      padding-inline: 1.5rem;
+      padding: 1.5rem 1.5rem 4rem;
     }
 
     header {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 20;
       backdrop-filter: blur(18px);
-      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.75), transparent);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+      background: linear-gradient(to bottom, rgba(5, 8, 22, 0.96), rgba(5, 8, 22, 0.75), transparent);
     }
 
     .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem 1.5rem 0.75rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-block: 0.9rem;
       gap: 1rem;
     }
 
-    .brand {
+    .nav-left {
       display: flex;
       align-items: center;
       gap: 0.75rem;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 40% 60% 45% 55%;
-      background: radial-gradient(circle at 30% 20%, #38bdf8, #0ea5e9 40%, #0f172a 100%);
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9), 0 12px 30px rgba(8, 47, 73, 0.9);
-      position: relative;
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
       overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background: #020617;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
     }
 
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 18%;
-      border-radius: inherit;
-      border: 1px solid rgba(15, 23, 42, 0.7);
-      box-shadow: inset 0 0 18px rgba(15, 23, 42, 0.9);
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
     }
 
-    .brand-text-main {
+    .brand-text span:first-child {
+      font-size: 0.95rem;
       font-weight: 600;
-      letter-spacing: 0.04em;
       color: var(--heading);
-      font-size: 0.98rem;
     }
 
-    .brand-text-sub {
-      font-size: 0.78rem;
+    .brand-text span:last-child {
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
@@ -124,7 +122,6 @@
     .nav-links a {
       position: relative;
       color: var(--text-muted);
-      padding-block: 0.15rem;
       transition: color var(--transition-fast);
     }
 
@@ -135,9 +132,9 @@
       bottom: -0.25rem;
       height: 2px;
       border-radius: 999px;
-      background: linear-gradient(to left, #38bdf8, #22c55e);
-      transform-origin: center;
+      background: linear-gradient(90deg, var(--accent), #a855f7);
       transform: scaleX(0);
+      transform-origin: center;
       transition: transform var(--transition-fast);
     }
 
@@ -157,14 +154,15 @@
 
     .pill {
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      padding: 0.35rem 0.9rem;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      padding: 0.45rem 0.95rem;
+      border: 1px solid var(--border-subtle);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0.9));
+      font-size: 0.8rem;
+      color: var(--text-main);
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 55%);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
     }
 
     .pill-dot {
@@ -172,795 +170,620 @@
       height: 7px;
       border-radius: 999px;
       background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
     }
 
     .btn-outline {
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      padding: 0.45rem 1.1rem;
+      padding: 0.45rem 1rem;
+      border: 1px solid var(--border-subtle);
       font-size: 0.8rem;
       color: var(--text-main);
-      background: rgba(15, 23, 42, 0.7);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+      background: transparent;
       cursor: pointer;
       transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
     }
 
     .btn-outline:hover {
-      background: rgba(15, 23, 42, 0.95);
+      background: rgba(15, 23, 42, 0.9);
       border-color: var(--accent);
       transform: translateY(-1px);
     }
 
-    .btn-primary {
-      border-radius: var(--radius-pill);
-      border: none;
-      padding: 0.55rem 1.4rem;
-      font-size: 0.85rem;
-      color: #0b1120;
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      cursor: pointer;
-      font-weight: 600;
-      box-shadow: 0 14px 35px rgba(56, 189, 248, 0.35);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 18px 45px rgba(56, 189, 248, 0.45);
-    }
-
-    .btn-primary span.icon {
-      font-size: 1rem;
-    }
-
-    .nav-toggle {
+    .menu-toggle {
       display: none;
-      border: 1px solid rgba(148, 163, 184, 0.6);
+      border: 1px solid var(--border-subtle);
       border-radius: 999px;
-      padding: 0.25rem 0.6rem;
-      background: rgba(15, 23, 42, 0.85);
+      padding: 0.35rem 0.7rem;
+      background: rgba(15, 23, 42, 0.9);
       color: var(--text-main);
       font-size: 0.8rem;
       cursor: pointer;
     }
 
-    main {
-      flex: 1;
-    }
-
-    section {
-      padding-block: var(--section-padding);
-    }
-
-    /* Hero */
     .hero {
-      padding-top: 3.5rem;
-    }
-
-    .hero-grid {
+      padding-top: 2.5rem;
+      padding-bottom: var(--section-padding);
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 3rem;
+      gap: 2.5rem;
       align-items: center;
+    }
+
+    .hero-intro {
+      position: relative;
     }
 
     .hero-kicker {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.4);
       padding: 0.25rem 0.75rem;
-      font-size: 0.78rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--text-muted);
-      background: radial-gradient(circle at right, rgba(56, 189, 248, 0.18), transparent 55%);
-      margin-bottom: 1.1rem;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
     }
 
-    .hero-kicker-badge {
-      padding: 0.1rem 0.55rem;
+    .hero-kicker span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 18px;
+      height: 18px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.7rem;
+      background: var(--accent-soft);
       color: var(--accent);
+      font-size: 0.75rem;
     }
 
     .hero-title {
-      font-size: clamp(2.1rem, 4vw, 2.8rem);
-      line-height: 1.2;
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
       color: var(--heading);
+      font-weight: 700;
       margin-bottom: 0.75rem;
     }
 
-    .hero-title span.highlight {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
+    .hero-title span {
+      background: linear-gradient(120deg, var(--accent), #a855f7);
       -webkit-background-clip: text;
       color: transparent;
-      font-weight: 700;
     }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 1rem;
       color: var(--text-muted);
       max-width: 34rem;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-subtitle strong {
-      color: var(--text-main);
-      font-weight: 500;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.9rem;
-      align-items: center;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.5rem;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 0.75rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-meta span::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      border-radius: var(--radius-pill);
+      padding: 0.6rem 1.4rem;
+      border: none;
+      background: linear-gradient(135deg, var(--accent), #0ea5e9);
+      color: #0b1120;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 18px 40px rgba(8, 47, 73, 0.9);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+      box-shadow: 0 22px 55px rgba(8, 47, 73, 1);
+    }
+
+    .btn-ghost {
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1.2rem;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      margin-top: 1.25rem;
       font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .hero-meta-item {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .hero-meta-label {
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-size: 0.7rem;
-      color: #6b7280;
-    }
-
-    .hero-meta-value {
-      color: var(--text-main);
+    .hero-note strong {
+      color: var(--accent);
+      font-weight: 500;
     }
 
     .hero-visual {
       position: relative;
-      min-height: 260px;
+      padding: 1.5rem;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), rgba(15, 23, 42, 0.98));
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
     }
 
     .hero-orbit {
       position: absolute;
       inset: 0;
-      border-radius: 32px;
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 60%),
-                  radial-gradient(circle at bottom, rgba(34, 197, 94, 0.16), transparent 60%);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
+      opacity: 0.35;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.35), transparent 55%),
+        radial-gradient(circle at 90% 100%, rgba(129, 140, 248, 0.35), transparent 55%);
+      pointer-events: none;
     }
 
-    .hero-orbit-inner {
-      position: absolute;
-      inset: 10%;
-      border-radius: 26px;
-      border: 1px dashed rgba(148, 163, 184, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-    }
-
-    .hero-orbit-grid {
+    .hero-visual-inner {
+      position: relative;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.1rem;
-      width: 100%;
+      gap: 1.25rem;
     }
 
-    .hero-orbit-block {
-      padding: 0.9rem 1rem;
-      border-radius: 16px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      backdrop-filter: blur(10px);
+    .hero-line {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+      padding-bottom: 0.5rem;
+    }
+
+    .hero-line span:first-child {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       font-size: 0.8rem;
     }
 
-    .hero-orbit-label {
-      font-size: 0.72rem;
-      color: #9ca3af;
-      margin-bottom: 0.25rem;
-    }
-
-    .hero-orbit-main {
-      color: var(--heading);
-      margin-bottom: 0.2rem;
-    }
-
-    .hero-orbit-tagline {
-      font-size: 0.72rem;
+    .hero-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
       color: var(--text-muted);
     }
 
-    .hero-orbit-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      border-radius: 999px;
-      padding: 0.2rem 0.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      margin-top: 0.35rem;
-    }
-
-    .hero-orbit-pill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #38bdf8;
-    }
-
-    .hero-orbit-ring {
-      position: absolute;
-      inset: 18%;
-      border-radius: 32px;
-      border: 1px solid rgba(56, 189, 248, 0.35);
-      opacity: 0.7;
-    }
-
-    .hero-orbit-ring::before,
-    .hero-orbit-ring::after {
-      content: "";
-      position: absolute;
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #38bdf8;
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
-    }
-
-    .hero-orbit-ring::before {
-      top: 14%;
-      inset-inline-start: 10%;
-    }
-
-    .hero-orbit-ring::after {
-      bottom: 12%;
-      inset-inline-end: 12%;
-    }
-
-    /* Sections shared */
-    .section-header {
+    .hero-highlight {
+      padding: 0.75rem 0.9rem;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.8rem;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
-      margin-bottom: 2.2rem;
+      gap: 0.25rem;
+    }
+
+    .hero-highlight strong {
+      color: var(--heading);
+      font-size: 0.85rem;
+    }
+
+    .hero-highlight span {
+      color: var(--text-muted);
+    }
+
+    .hero-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-footer span strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .hero-footer a {
+      color: var(--accent);
+      font-weight: 500;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    section {
+      padding-block: var(--section-padding);
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .section-kicker {
-      font-size: 0.78rem;
-      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: #6b7280;
+      margin-bottom: 0.3rem;
     }
 
     .section-title {
       font-size: 1.4rem;
       color: var(--heading);
+      font-weight: 600;
     }
 
-    .section-description {
+    .section-subtitle {
       font-size: 0.9rem;
       color: var(--text-muted);
-      max-width: 32rem;
+      max-width: 26rem;
     }
 
-    /* About */
-    .about-layout {
+    .section-body {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
-      gap: 2.5rem;
+      gap: 2.25rem;
       align-items: flex-start;
     }
 
-    .about-text p {
-      font-size: 0.95rem;
-      color: var(--text-main);
-      margin-bottom: 0.9rem;
-    }
-
-    .about-text p span {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .about-list {
-      list-style: none;
-      margin-top: 0.6rem;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
-    .about-list li {
-      margin-bottom: 0.4rem;
-      position: relative;
-      padding-inline-start: 1.1rem;
-    }
-
-    .about-list li::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 0;
-      top: 0.55rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-    }
-
-    .about-highlight {
+    .block {
       border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
       border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at top, rgba(56, 189, 248, 0.12), transparent 60%);
-      padding: 1.2rem 1.3rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
     }
 
-    .about-highlight strong {
+    .block h3 {
+      font-size: 1rem;
+      color: var(--heading);
+      margin-bottom: 0.75rem;
+    }
+
+    .block p {
+      font-size: 0.9rem;
       color: var(--text-main);
-      font-weight: 500;
+      margin-bottom: 0.75rem;
     }
 
-    /* Skills & focus */
-    .skills-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 2.5rem;
-      align-items: flex-start;
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.85rem;
     }
 
-    .skills-tags {
+    .list-inline {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.55rem;
-    }
-
-    .tag {
-      border-radius: var(--radius-pill);
-      padding: 0.25rem 0.8rem;
-      font-size: 0.78rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .skills-columns {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.4rem;
-      font-size: 0.86rem;
+      gap: 0.5rem 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
     }
 
-    .skills-columns h4 {
-      font-size: 0.9rem;
-      color: var(--text-main);
-      margin-bottom: 0.4rem;
-    }
-
-    .skills-columns ul {
-      list-style: none;
-    }
-
-    .skills-columns li {
-      margin-bottom: 0.35rem;
-      position: relative;
-      padding-inline-start: 0.9rem;
-    }
-
-    .skills-columns li::before {
+    .list-inline span::before {
       content: "•";
-      position: absolute;
-      inset-inline-start: 0;
-      color: #38bdf8;
-      font-size: 0.8rem;
-      top: 0.05rem;
+      margin-inline-end: 0.35rem;
+      color: var(--accent);
     }
 
-    .focus-panel {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: radial-gradient(circle at bottom, rgba(34, 197, 94, 0.12), transparent 60%);
-      padding: 1.3rem 1.4rem;
-      font-size: 0.86rem;
-      color: var(--text-muted);
-    }
-
-    .focus-panel h4 {
-      font-size: 0.95rem;
-      color: var(--heading);
-      margin-bottom: 0.5rem;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.7rem 1.4rem;
-      margin-top: 0.7rem;
-    }
-
-    .focus-item-label {
-      font-size: 0.82rem;
-      color: var(--text-main);
-    }
-
-    .focus-item-note {
-      font-size: 0.78rem;
-      color: var(--text-muted);
-    }
-
-    /* Experience & training */
     .timeline {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.85);
-      padding: 1.4rem 1.5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 1.1rem;
-      top: 1.6rem;
-      bottom: 1.6rem;
-      width: 1px;
-      background: linear-gradient(to bottom, rgba(148, 163, 184, 0.2), rgba(148, 163, 184, 0.7));
+      border-inline-start: 1px dashed rgba(148, 163, 184, 0.5);
+      padding-inline-start: 1.25rem;
+      display: grid;
+      gap: 0.9rem;
+      font-size: 0.85rem;
+      color: var(--text-main);
     }
 
     .timeline-item {
       position: relative;
-      padding-inline-start: 2.4rem;
-      margin-bottom: 1.4rem;
     }
 
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
+    .timeline-item::before {
+      content: "";
       position: absolute;
-      inset-inline-start: 0.75rem;
+      inset-inline-start: -1.45rem;
       top: 0.25rem;
-      width: 10px;
-      height: 10px;
+      width: 9px;
+      height: 9px;
       border-radius: 999px;
-      background: #38bdf8;
-      box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.25);
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(56, 189, 248, 0.18);
     }
 
-    .timeline-title {
-      font-size: 0.95rem;
-      color: var(--heading);
-      margin-bottom: 0.15rem;
-    }
-
-    .timeline-meta {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-bottom: 0.35rem;
-    }
-
-    .timeline-body {
-      font-size: 0.86rem;
+    .timeline-label {
+      font-size: 0.8rem;
       color: var(--text-muted);
+      margin-bottom: 0.1rem;
     }
 
-    .timeline-body strong {
-      color: var(--text-main);
+    .timeline-main {
       font-weight: 500;
+      color: var(--heading);
+      margin-bottom: 0.1rem;
     }
 
-    .timeline-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      border-radius: 999px;
-      padding: 0.15rem 0.7rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.75rem;
+    .timeline-note {
+      font-size: 0.8rem;
       color: var(--text-muted);
-      margin-top: 0.4rem;
     }
 
-    .timeline-badge span.dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .certs-panel {
-      margin-top: 1.6rem;
-      border-radius: var(--radius-lg);
-      border: 1px dashed rgba(148, 163, 184, 0.6);
-      padding: 1.1rem 1.3rem;
-      font-size: 0.84rem;
-      color: var(--text-muted);
-      background: rgba(15, 23, 42, 0.85);
-    }
-
-    .certs-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 0.7rem;
-    }
-
-    .cert-link {
-      border-radius: var(--radius-pill);
-      padding: 0.25rem 0.8rem;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      font-size: 0.78rem;
-      color: var(--text-main);
-      background: rgba(15, 23, 42, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    /* Projects & services */
-    .projects-layout {
+    .gallery {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 2.5rem;
-      align-items: flex-start;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.6rem;
+    }
+
+    .gallery img {
+      border-radius: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #020617;
+      object-fit: cover;
+      aspect-ratio: 4 / 3;
     }
 
     .project-block {
       border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), rgba(2, 6, 23, 0.98));
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 1.3rem 1.4rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.9rem;
     }
 
-    .project-block h4 {
-      font-size: 0.95rem;
+    .project-title {
+      font-size: 1rem;
       color: var(--heading);
-      margin-bottom: 0.4rem;
+      font-weight: 600;
     }
 
     .project-meta {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-bottom: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .project-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
-      margin-top: 0.6rem;
-      font-size: 0.8rem;
+      gap: 0.4rem;
+      font-size: 0.85rem;
       color: var(--accent);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
     }
 
     .services-list {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 1.3rem 1.4rem;
-      font-size: 0.88rem;
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .services-item-title {
+      font-weight: 500;
+      color: var(--heading);
+      margin-bottom: 0.15rem;
+    }
+
+    .services-item-note {
+      font-size: 0.8rem;
       color: var(--text-muted);
     }
 
-    .services-list h4 {
-      font-size: 0.95rem;
-      color: var(--heading);
-      margin-bottom: 0.6rem;
-    }
-
-    .services-items {
-      list-style: none;
-    }
-
-    .services-items li {
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-inline-start: 1.1rem;
-    }
-
-    .services-items li::before {
-      content: "";
-      position: absolute;
-      inset-inline-start: 0;
-      top: 0.55rem;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: #22c55e;
-    }
-
-    .services-note {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-top: 0.7rem;
-    }
-
-    /* Contact */
-    .contact {
-      padding-bottom: 3.5rem;
-    }
-
-    .contact-layout {
+    .contact-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 2.5rem;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+      gap: 2rem;
       align-items: flex-start;
     }
 
-    .contact-panel {
-      border-radius: var(--radius-lg);
-      border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 1.4rem 1.5rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    .contact-panel h4 {
-      font-size: 0.95rem;
-      color: var(--heading);
-      margin-bottom: 0.6rem;
-    }
-
-    .contact-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .contact-label {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-    }
-
-    .contact-value {
+    .contact-details {
       font-size: 0.9rem;
       color: var(--text-main);
-      word-break: break-all;
+      display: grid;
+      gap: 0.6rem;
     }
 
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.8rem;
-    }
-
-    .contact-link-pill {
-      border-radius: var(--radius-pill);
-      padding: 0.3rem 0.9rem;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.8rem;
-      color: var(--text-main);
+    .contact-details span {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .contact-details strong {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      min-width: 70px;
+    }
+
+    .contact-details a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    .contact-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
     }
 
     .contact-form {
       border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), rgba(2, 6, 23, 0.98));
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.9);
-      padding: 1.4rem 1.5rem;
-      font-size: 0.88rem;
-      color: var(--text-muted);
+      padding: 1.5rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
     }
 
-    .contact-form h4 {
-      font-size: 0.95rem;
-      color: var(--heading);
-      margin-bottom: 0.6rem;
-    }
-
-    .field {
+    .contact-form-row {
+      display: grid;
+      gap: 0.75rem;
       margin-bottom: 0.9rem;
     }
 
-    .field label {
-      display: block;
+    label {
       font-size: 0.8rem;
-      color: #9ca3af;
+      color: var(--text-muted);
+      display: block;
       margin-bottom: 0.25rem;
     }
 
-    .field input,
-    .field textarea {
+    input,
+    textarea {
       width: 100%;
-      border-radius: 10px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.95);
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.9);
       color: var(--text-main);
       padding: 0.55rem 0.7rem;
+      font-family: var(--font-main);
       font-size: 0.85rem;
       outline: none;
       transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-      resize: vertical;
-      min-height: 42px;
     }
 
-    .field textarea {
-      min-height: 110px;
-    }
-
-    .field input:focus,
-    .field textarea:focus {
+    input:focus,
+    textarea:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4);
-      background: #020617;
+      background: rgba(15, 23, 42, 1);
     }
 
-    .form-note {
-      font-size: 0.78rem;
-      color: #9ca3af;
-      margin-top: 0.4rem;
+    textarea {
+      min-height: 120px;
+      resize: vertical;
     }
 
     footer {
-      border-top: 1px solid rgba(148, 163, 184, 0.3);
-      padding-block: 1.2rem 1.6rem;
-      font-size: 0.78rem;
-      color: #6b7280;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+      padding-top: 2.5rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      border-top: 1px solid rgba(15, 23, 42, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    footer span {
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
       color: var(--accent);
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
     }
 
-    /* Responsive */
-    @media (max-width: 960px) {
-      .hero-grid,
-      .about-layout,
-      .skills-layout,
-      .projects-layout,
-      .contact-layout {
+    .scroll-top {
+      position: fixed;
+      inset-inline-end: 1.25rem;
+      bottom: 1.25rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--text-main);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      gap: 0.35rem;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+      z-index: 30;
+    }
+
+    .scroll-top.visible {
+      display: inline-flex;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .section-body,
+      .contact-grid {
         grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero {
+        padding-top: 2rem;
       }
 
       .hero-visual {
         order: -1;
       }
-
-      .hero {
-        padding-top: 2.5rem;
-      }
     }
 
-    @media (max-width: 768px) {
-      header {
-        background: rgba(15, 23, 42, 0.96);
+    @media (max-width: 720px) {
+      .nav {
+        padding-inline: 1rem;
+      }
+
+      .page {
+        padding-inline: 1rem;
       }
 
       .nav-links,
@@ -968,15 +791,17 @@
         display: none;
       }
 
-      .nav-toggle {
+      .menu-toggle {
         display: inline-flex;
-        align-items: center;
-        gap: 0.3rem;
       }
 
       .nav-open .nav-links,
       .nav-open .nav-cta {
         display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 0.75rem;
       }
 
       .nav-open .nav {
@@ -984,535 +809,487 @@
         align-items: flex-start;
       }
 
-      .nav-open .nav-links {
-        width: 100%;
-        justify-content: flex-start;
-        margin-top: 0.6rem;
-      }
-
-      .nav-open .nav-cta {
-        width: 100%;
-        justify-content: flex-start;
-      }
-
       section {
         padding-block: 3rem;
       }
 
-      .hero-orbit-inner {
-        inset: 12%;
+      .section-header {
+        margin-bottom: 1.25rem;
       }
 
-      .skills-columns {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .focus-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 520px) {
-      .shell {
-        padding-inline: 1.1rem;
+    @media (max-width: 480px) {
+      .gallery {
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .hero-title {
         font-size: 1.9rem;
       }
-
-      .hero-meta {
-        gap: 1rem;
-      }
-
-      .hero-orbit-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .timeline::before {
-        inset-inline-start: 0.9rem;
-      }
-
-      .timeline-item {
-        padding-inline-start: 2.1rem;
-      }
-
-      .timeline-dot {
-        inset-inline-start: 0.55rem;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <header>
-      <div class="shell">
-        <nav class="nav" id="nav">
-          <div class="brand">
-            <div class="brand-mark"></div>
-            <div>
-              <div class="brand-text-main">عماد الغامدي</div>
-              <div class="brand-text-sub">تطوير ويب · أمن سيبراني</div>
-            </div>
-          </div>
-          <button class="nav-toggle" id="navToggle">
-            القائمة
-            <span>☰</span>
-          </button>
-          <div class="nav-links">
-            <a href="#about">من أنا</a>
-            <a href="#skills">المهارات</a>
-            <a href="#experience">الخبرة</a>
-            <a href="#projects">الأعمال</a>
-            <a href="#contact">تواصل</a>
-          </div>
-          <div class="nav-cta">
-            <div class="pill">
-              <span class="pill-dot"></span>
-              متاح لفرص جديدة
-            </div>
-            <button class="btn-outline" onclick="scrollToSection('contact')">
-              تواصل سريع
-            </button>
-          </div>
-        </nav>
+  <header id="top">
+    <nav class="nav">
+      <div class="nav-left">
+        <div class="logo">
+          <img src="https://i.postimg.cc/Bb84rrPN/IMG-0476.png" alt="شعار الموقع" />
+        </div>
+        <div class="brand-text">
+          <span>عماد الغامدي</span>
+          <span>تطوير ويب · أمن سيبراني</span>
+        </div>
       </div>
-    </header>
 
-    <main>
-      <!-- Hero -->
-      <section class="hero">
-        <div class="shell hero-grid">
-          <div>
-            <div class="hero-kicker">
-              <span class="hero-kicker-badge">ويب · أمن · ابتكار</span>
-              بناء تجارب رقمية آمنة وفعّالة
-            </div>
-            <h1 class="hero-title">
-              مطور ويب يوازن بين
-              <span class="highlight">الجمال، الأداء، والأمان</span>
-            </h1>
-            <p class="hero-subtitle">
-              أعمل على بناء واجهات ويب حديثة، سريعة، وقابلة للتطوير، مع تركيز عميق على
-              <strong>جودة الكود</strong>،
-              <strong>تجربة المستخدم</strong>،
-              و<strong>الممارسات الأمنية</strong> في كل طبقة من المشروع.
-            </p>
-            <div class="hero-actions">
-              <button class="btn-primary" onclick="scrollToSection('projects')">
-                <span class="icon">↗</span>
-                استعراض الأعمال
-              </button>
-              <button class="btn-outline" onclick="scrollToSection('experience')">
-                المسار المهني
-              </button>
-            </div>
-            <div class="hero-meta">
-              <div class="hero-meta-item">
-                <div class="hero-meta-label">سنوات الخبرة</div>
-                <div class="hero-meta-value">خبرة عملية متراكمة في تطوير الويب</div>
-              </div>
-              <div class="hero-meta-item">
-                <div class="hero-meta-label">مجالات التركيز</div>
-                <div class="hero-meta-value">تطوير واجهات، أمن سيبراني، وتقنيات حديثة</div>
-              </div>
-            </div>
+      <button class="menu-toggle" type="button" aria-label="القائمة">
+        القائمة
+      </button>
+
+      <div class="nav-links">
+        <a href="#about">عن المسار</a>
+        <a href="#skills">المهارات</a>
+        <a href="#services">الخدمات</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#certs">الشهادات</a>
+        <a href="#contact">تواصل</a>
+      </div>
+
+      <div class="nav-cta">
+        <div class="pill">
+          <span class="pill-dot"></span>
+          متاح لفرص جديدة
+        </div>
+        <a href="#contact" class="btn-outline">ابدأ تواصلك</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-intro">
+        <div class="hero-kicker">
+          <span>★</span>
+          بناء تجارب ويب عملية وآمنة
+        </div>
+        <h1 id="hero-title" class="hero-title">
+          مطور ويب يوازن بين <span>التجربة</span> و<span>الأمان</span>.
+        </h1>
+        <p class="hero-subtitle">
+          أعمل على تحويل الأفكار التقنية إلى منتجات رقمية واضحة، سريعة، ومبنية بعناية على أسس أمنية قوية.
+          أركز على التفاصيل الصغيرة التي تصنع فرقًا كبيرًا في تجربة المستخدم وجودة الكود.
+        </p>
+
+        <div class="hero-meta">
+          <span>خبرة عملية ممتدة في تطوير الويب</span>
+          <span>شغف بالحاسب والتقنية الحديثة</span>
+          <span>اهتمام عميق بالأمن السيبراني</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">
+            استعرض الأعمال
+            <span>↗</span>
+          </a>
+          <a href="#contact" class="btn-ghost">
+            تواصل مباشرة
+            <span>✉</span>
+          </a>
+        </div>
+
+        <p class="hero-note">
+          <strong>ملخص سريع:</strong> مطور ويب بخبرة متقدمة، مهتم بالذكاء الاصطناعي، إنترنت الأشياء، والأمن السيبراني، مع حضور قوي في التدريب والمشاريع.
+        </p>
+      </div>
+
+      <aside class="hero-visual" aria-label="ملف مهني مختصر">
+        <div class="hero-orbit"></div>
+        <div class="hero-visual-inner">
+          <div class="hero-line">
+            <span>التركيز المهني</span>
+            <span>تطوير واجهات · أمن · جودة كود</span>
           </div>
 
-          <div class="hero-visual">
-            <div class="hero-orbit">
-              <div class="hero-orbit-inner">
-                <div class="hero-orbit-grid">
-                  <div class="hero-orbit-block">
-                    <div class="hero-orbit-label">تجربة المستخدم</div>
-                    <div class="hero-orbit-main">واجهات مصممة بعناية</div>
-                    <div class="hero-orbit-tagline">
-                      تنظيم المحتوى، وضوح المسار، وتفاصيل صغيرة تصنع فرقًا كبيرًا في تجربة الزائر.
-                    </div>
-                  </div>
-                  <div class="hero-orbit-block">
-                    <div class="hero-orbit-label">الأمن السيبراني</div>
-                    <div class="hero-orbit-main">تفكير دفاعي في كل سطر كود</div>
-                    <div class="hero-orbit-tagline">
-                      منطق آمن، تعامل واعٍ مع البيانات، وتقليل نقاط الضعف منذ مرحلة التصميم.
-                    </div>
-                  </div>
-                  <div class="hero-orbit-block">
-                    <div class="hero-orbit-label">التقنيات الحديثة</div>
-                    <div class="hero-orbit-main">ذكاء اصطناعي وإنترنت أشياء</div>
-                    <div class="hero-orbit-tagline">
-                      توظيف التقنيات الناشئة في حلول عملية تضيف قيمة حقيقية للمستخدم.
-                    </div>
-                  </div>
-                  <div class="hero-orbit-block">
-                    <div class="hero-orbit-label">نقل المعرفة</div>
-                    <div class="hero-orbit-main">تجربة في التدريب والتعليم</div>
-                    <div class="hero-orbit-tagline">
-                      تبسيط المفاهيم المعقدة، وتحويلها إلى خطوات واضحة يمكن تطبيقها مباشرة.
-                    </div>
-                    <div class="hero-orbit-pill">
-                      <span class="hero-orbit-pill-dot"></span>
-                      محتوى تدريبي مبني على خبرة عملية
-                    </div>
-                  </div>
-                </div>
+          <div class="hero-tags">
+            <span class="hero-tag">تطوير واجهات ويب</span>
+            <span class="hero-tag">تصميم تجارب استخدام</span>
+            <span class="hero-tag">مفاهيم الأمن السيبراني</span>
+            <span class="hero-tag">تقنيات حديثة</span>
+          </div>
+
+          <div class="hero-highlight">
+            <strong>منهجية العمل</strong>
+            <span>تحليل الفكرة، تصميم التجربة، بناء الواجهة، مراجعة الأمان، ثم تحسين مستمر بناءً على الاستخدام الفعلي.</span>
+          </div>
+
+          <div class="hero-footer">
+            <span>ملف تقني موثق عبر منصات تعليمية ومشاريع حقيقية.</span>
+            <a href="https://profile.satr.codes/y50ib/public/overview" target="_blank" rel="noopener noreferrer">
+              عرض الملف في منصة سطر
+            </a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">عن المسار المهني</div>
+          <h2 id="about-title" class="section-title">خلفية تقنية مبنية على ممارسة طويلة</h2>
+        </div>
+        <p class="section-subtitle">
+          المسار لم يبدأ من دورة واحدة أو مشروع واحد، بل من سنوات من التجربة، التجريب، والتعلم المستمر في عالم الويب والأمن السيبراني.
+        </p>
+      </div>
+
+      <div class="section-body">
+        <div class="block">
+          <h3>كيف أتعامل مع المشاريع</h3>
+          <p>
+            أتعامل مع كل مشروع وكأنه منتج سيعيش لفترة طويلة، لذلك أهتم ببنية الكود، قابلية التطوير،
+            وسهولة الصيانة بقدر اهتمامي بالشكل النهائي الذي يراه المستخدم.
+          </p>
+          <p>
+            أحرص على أن تكون الواجهة واضحة، سريعة الاستجابة، ومتوافقة مع مختلف الأجهزة، مع مراعاة
+            الجوانب الأمنية منذ البداية وليس في مرحلة متأخرة من التطوير.
+          </p>
+          <p class="muted">
+            الهدف النهائي: تجربة استخدام مريحة، وكود يمكن الوثوق به، ومشروع يمكن البناء عليه مستقبلاً دون تعقيد.
+          </p>
+        </div>
+
+        <div class="block">
+          <h3>ملامح الخبرة</h3>
+          <div class="timeline" aria-label="ملخص الخبرة">
+            <div class="timeline-item">
+              <div class="timeline-label">الخبرة العملية</div>
+              <div class="timeline-main">سنوات من العمل في تطوير الويب</div>
+              <div class="timeline-note">
+                التعامل مع مشاريع متنوعة، من واجهات بسيطة إلى حلول أكثر تعقيدًا تتطلب تنظيمًا عاليًا للكود.
               </div>
-              <div class="hero-orbit-ring"></div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-label">الاهتمامات التقنية</div>
+              <div class="timeline-main">الحاسب، الأمن السيبراني، والتقنيات الناشئة</div>
+              <div class="timeline-note">
+                متابعة مستمرة لأحدث الممارسات في الأمن، وتجربة أدوات وتقنيات جديدة تخدم جودة المشاريع.
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-label">المشاركة المعرفية</div>
+              <div class="timeline-main">تقديم محتوى تدريبي في تطوير الويب</div>
+              <div class="timeline-note">
+                نقل التجربة إلى الآخرين عبر دورات عملية تركز على بناء مشاريع حقيقية لا مجرد أمثلة نظرية.
+              </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- About -->
-      <section id="about">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">نبذة</div>
-            <h2 class="section-title">منهجية عمل قبل أن تكون مجرد مهارات</h2>
-            <p class="section-description">
-              خلف كل مشروع ناجح مزيج من التفكير التحليلي، حب للتفاصيل، وحرص على أن يكون المنتج النهائي
-              قابلًا للاستخدام، الصيانة، والتطوير على المدى الطويل.
-            </p>
-          </div>
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">المهارات والتركيز التقني</div>
+          <h2 id="skills-title" class="section-title">مزيج بين تطوير الواجهات وفهم الأمان</h2>
+        </div>
+        <p class="section-subtitle">
+          المهارات ليست قائمة أدوات فقط، بل طريقة تفكير في بناء حلول عملية، قابلة للتطوير، وتحترم معايير الأمان.
+        </p>
+      </div>
 
-          <div class="about-layout">
-            <div class="about-text">
-              <p>
-                أعمل كمطور ويب يدمج بين <span>الجانب التقني</span> والجانب
-                <span>الأمني</span> في كل مشروع. أتعامل مع الواجهات الأمامية كمساحة لصناعة تجربة متوازنة
-                بين البساطة، السرعة، والهوية البصرية، مع مراعاة أن كل قرار في الواجهة ينعكس على الأداء
-                والانطباع الأول للمستخدم.
-              </p>
-              <p>
-                اهتمامي بالحاسب والأمن السيبراني جعلني أرى المشاريع من زاوية أوسع من مجرد “صفحة تعمل”؛
-                بل منظومة متكاملة يجب أن تكون <span>محمية، واضحة، وقابلة للتطوير</span>، سواء كانت
-                متجرًا إلكترونيًا، لوحة تحكم، أو منصة تعليمية.
-              </p>
-              <ul class="about-list">
-                <li>تفكير مبني على التجربة العملية في بيئات حقيقية، وليس فقط أمثلة نظرية.</li>
-                <li>حرص على كتابة كود نظيف ومنظم يسهل على أي مطور آخر قراءته وتطويره.</li>
-                <li>تركيز على التفاصيل الصغيرة التي ترفع جودة المشروع دون تعقيد غير ضروري.</li>
-              </ul>
-            </div>
-
-            <div class="about-highlight">
-              <strong>النتيجة النهائية التي أبحث عنها:</strong> مشروع يشعر فيه المستخدم أن كل شيء في مكانه
-              الصحيح، وصاحب المشروع مطمئن أن البنية التقنية والأمنية للموقع مبنية على أسس قوية، مع قابلية
-              للتوسع وإضافة مزايا مستقبلية دون إعادة البناء من الصفر.
-            </div>
+      <div class="section-body">
+        <div class="block">
+          <h3>مساحات العمل الأساسية</h3>
+          <p>
+            أركز على بناء واجهات ويب نظيفة، متجاوبة، وسهلة الاستخدام، مع مراعاة الأداء وتجربة المستخدم من أول سطر كود.
+          </p>
+          <div class="list-inline" aria-label="مجالات التركيز">
+            <span>تطوير واجهات الويب</span>
+            <span>تنظيم بنية المشاريع</span>
+            <span>تحسين الأداء وتجربة المستخدم</span>
+            <span>مراعاة أساسيات الأمن السيبراني</span>
+            <span>التعامل مع تقنيات حديثة مرتبطة بالذكاء الاصطناعي وإنترنت الأشياء</span>
           </div>
         </div>
-      </section>
 
-      <!-- Skills -->
-      <section id="skills">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">المهارات والتركيز</div>
-            <h2 class="section-title">مزيج بين تطوير الواجهات والتفكير الأمني</h2>
-            <p class="section-description">
-              خلفية تقنية متنوعة في مجالات متداخلة مثل الذكاء الاصطناعي، إنترنت الأشياء، الأمن السيبراني،
-              والبرمجة، تُستخدم لدعم قرارات التطوير بدل أن تكون مجرد عناوين على ورق.
-            </p>
-          </div>
+        <div class="block">
+          <h3>طريقة التفكير التقنية</h3>
+          <p>
+            عند التعامل مع أي مشروع، أبدأ بفهم المشكلة، ثم تقسيمها إلى أجزاء صغيرة يمكن التعامل معها،
+            مع وضع خطة واضحة لبنية الواجهة، تدفق البيانات، ونقاط التفاعل مع المستخدم.
+          </p>
+          <p class="muted">
+            النتيجة: كود منظم، قابل للتطوير، ومشروع يمكن لأي مطور آخر فهمه والاستمرار عليه بسهولة.
+          </p>
+        </div>
+      </div>
+    </section>
 
-          <div class="skills-layout">
+    <section id="services" aria-labelledby="services-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">ما يمكنني تقديمه</div>
+          <h2 id="services-title" class="section-title">خدمات عملية مبنية على تجربة حقيقية</h2>
+        </div>
+        <p class="section-subtitle">
+          الخدمات ليست مجرد عناوين، بل مسارات عمل واضحة يمكن من خلالها تحويل فكرة إلى منتج رقمي متكامل.
+        </p>
+      </div>
+
+      <div class="section-body">
+        <div class="block">
+          <h3>خدمات تطوير الويب</h3>
+          <div class="services-list">
             <div>
-              <div class="skills-tags">
-                <span class="tag">تطوير واجهات ويب</span>
-                <span class="tag">تصميم تجارب المستخدم</span>
-                <span class="tag">ممارسات أمنية في الويب</span>
-                <span class="tag">دمج تقنيات حديثة</span>
-                <span class="tag">تجربة في التدريب</span>
-              </div>
-
-              <div class="skills-columns" style="margin-top: 1.6rem;">
-                <div>
-                  <h4>ما أركز عليه في الواجهة</h4>
-                  <ul>
-                    <li>بناء صفحات متجاوبة تعمل بسلاسة على مختلف الأجهزة.</li>
-                    <li>تنظيم المحتوى بحيث يصل المستخدم لما يريد بأقل عدد نقرات.</li>
-                    <li>الاهتمام بسرعة التحميل وتجربة التصفح من أول ثانية.</li>
-                    <li>استخدام بنية CSS قابلة للتعديل والتوسع بسهولة.</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4>ما أضيفه من جانب الأمن</h4>
-                  <ul>
-                    <li>تفكير استباقي في نقاط الضعف المحتملة في الواجهات.</li>
-                    <li>تعامل واعٍ مع المدخلات والبيانات المعروضة للمستخدم.</li>
-                    <li>تقليل المعلومات المكشوفة في الواجهة قدر الإمكان.</li>
-                    <li>مواءمة تجربة المستخدم مع متطلبات الأمان دون تعقيد.</li>
-                  </ul>
-                </div>
+              <div class="services-item-title">بناء واجهات ويب متجاوبة</div>
+              <div class="services-item-note">
+                تصميم وتطوير واجهات تعمل بسلاسة على مختلف الأجهزة، مع اهتمام خاص بالتفاصيل البصرية وسهولة الاستخدام.
               </div>
             </div>
-
-            <div class="focus-panel">
-              <h4>كيف أتعامل مع المشاريع</h4>
-              <p>
-                كل مشروع يمر بعدة مراحل واضحة: فهم الفكرة، تحديد الأولويات، تصميم تجربة الاستخدام، ثم
-                التنفيذ بخطوات مدروسة. الهدف ليس فقط “إنهاء” المشروع، بل الوصول لنسخة يمكن البناء عليها
-                بثقة.
-              </p>
-              <div class="focus-grid">
-                <div>
-                  <div class="focus-item-label">تحليل الفكرة</div>
-                  <div class="focus-item-note">
-                    تحويل المتطلبات العامة إلى مكونات واضحة يمكن تنفيذها وقياسها.
-                  </div>
-                </div>
-                <div>
-                  <div class="focus-item-label">تصميم التجربة</div>
-                  <div class="focus-item-note">
-                    رسم مسار المستخدم داخل الموقع، وتحديد ما يجب أن يراه أولًا.
-                  </div>
-                </div>
-                <div>
-                  <div class="focus-item-label">تنفيذ منظم</div>
-                  <div class="focus-item-note">
-                    تقسيم العمل إلى أجزاء صغيرة، مع كود نظيف يسهل تطويره لاحقًا.
-                  </div>
-                </div>
-                <div>
-                  <div class="focus-item-label">مراجعة وتحسين</div>
-                  <div class="focus-item-note">
-                    اختبار التجربة، تحسين التفاصيل، وضبط الأداء قبل الإطلاق.
-                  </div>
-                </div>
+            <div>
+              <div class="services-item-title">تحسين تجربة المستخدم</div>
+              <div class="services-item-note">
+                إعادة ترتيب الواجهة وتدفق التفاعل بحيث تكون الخطوات واضحة، منطقية، وتقلل من احتكاك المستخدم مع التعقيد.
+              </div>
+            </div>
+            <div>
+              <div class="services-item-title">مراجعة الكود وبنية المشروع</div>
+              <div class="services-item-note">
+                مراجعة شاملة للكود، اقتراح تحسينات، وتنظيم الملفات بما يجعل المشروع أكثر وضوحًا وقابلية للتطوير.
               </div>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- Experience & training -->
-      <section id="experience">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">الخبرة والتعلم المستمر</div>
-            <h2 class="section-title">مسار مهني مدعوم بشهادات وتطبيق عملي</h2>
-            <p class="section-description">
-              سنوات من العمل في تطوير الويب، مدعومة بتخصصات تقنية متعددة، وتجارب في تقديم محتوى تدريبي
-              لطلاب مهتمين بنفس المجال.
-            </p>
-          </div>
-
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-title">خبرة عملية في تطوير الويب</div>
-              <div class="timeline-meta">بناء مشاريع حقيقية في بيئات مختلفة</div>
-              <div class="timeline-body">
-                العمل على مشاريع متنوعة ساعد في تكوين رؤية واضحة حول ما يجعل الموقع ناجحًا فعلاً:
-                <strong>وضوح الفكرة، جودة التنفيذ، وسهولة الاستخدام</strong>، مع مراعاة أن كل مشروع له
-                احتياجاته الخاصة.
-              </div>
-              <div class="timeline-badge">
-                <span class="dot"></span>
-                خبرة متراكمة في التعامل مع تحديات حقيقية
+        <div class="block">
+          <h3>خدمات مرتبطة بالأمن والتقنيات الحديثة</h3>
+          <div class="services-list">
+            <div>
+              <div class="services-item-title">مراعاة أساسيات الأمن في الواجهات</div>
+              <div class="services-item-note">
+                تضمين ممارسات تقلل من المخاطر الشائعة في تطبيقات الويب، مع التفكير في الأمان كجزء من التصميم وليس إضافة لاحقة.
               </div>
             </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-title">تجربة في تقديم دورة برمجة ويب</div>
-              <div class="timeline-meta">محتوى تدريبي موجه لطلاب مهتمين بالتطوير</div>
-              <div class="timeline-body">
-                إعداد وتقديم دورة في تطوير الويب ساهم في تعميق الفهم للمفاهيم الأساسية والمتقدمة، مع
-                التركيز على نقل أفضل الممارسات، وتوضيح طريقة التفكير التي يحتاجها المطور لبناء مشروع من
-                الصفر حتى الإطلاق.
+            <div>
+              <div class="services-item-title">ربط الواجهات مع حلول ذكية</div>
+              <div class="services-item-note">
+                تصميم واجهات يمكنها التفاعل مع أنظمة تعتمد على الذكاء الاصطناعي أو إنترنت الأشياء، مع الحفاظ على بساطة الاستخدام.
               </div>
             </div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-title">تخصصات تقنية داعمة</div>
-              <div class="timeline-meta">ذكاء اصطناعي · إنترنت الأشياء · أمن سيبراني · برمجة · درونز</div>
-              <div class="timeline-body">
-                الخلفية المتنوعة في هذه المجالات تضيف بعدًا مختلفًا عند التعامل مع المشاريع، سواء في
-                <strong>فهم البيانات</strong>،
-                <strong>تصميم الأنظمة</strong>،
-                أو <strong>تقييم المخاطر الأمنية</strong> في الحلول التقنية المقترحة.
-              </div>
-            </div>
-          </div>
-
-          <div class="certs-panel">
-            شهادات معتمدة في مجالات متعددة تعكس استثمارًا مستمرًا في التعلم والتطوير المهني. يمكن الاطلاع
-            على نماذج من الشهادات عبر الروابط التالية:
-            <div class="certs-links">
-              <a class="cert-link" href="https://i.postimg.cc/tTFGWkpY/IMG-0446.jpg" target="_blank" rel="noopener">
-                عرض شهادة 1
-              </a>
-              <a class="cert-link" href="https://i.postimg.cc/MG2STgJR/IMG-0447.jpg" target="_blank" rel="noopener">
-                عرض شهادة 2
-              </a>
-              <a class="cert-link" href="https://i.postimg.cc/J4MTMk4z/IMG-0448.jpg" target="_blank" rel="noopener">
-                عرض شهادة 3
-              </a>
-              <a class="cert-link" href="https://i.postimg.cc/BQpm6nXK/IMG-0449.jpg" target="_blank" rel="noopener">
-                عرض شهادة 4
-              </a>
-              <a class="cert-link" href="https://i.postimg.cc/02nVQybc/IMG-0450.jpg" target="_blank" rel="noopener">
-                عرض شهادة 5
-              </a>
-              <a class="cert-link" href="https://i.postimg.cc/TY0tw3pZ/IMG-0452.jpg" target="_blank" rel="noopener">
-                عرض شهادة 6
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects & services -->
-      <section id="projects">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">الأعمال والخدمات</div>
-            <h2 class="section-title">مشاريع حقيقية وخدمات يمكن البناء عليها</h2>
-            <p class="section-description">
-              التركيز في المشاريع يكون على تقديم تجربة متكاملة: واجهة واضحة، أداء مستقر، وهوية بصرية
-              متناسقة مع هدف المشروع، مع قابلية للتطوير مستقبلاً.
-            </p>
-          </div>
-
-          <div class="projects-layout">
-            <div class="project-block">
-              <h4>متجر إلكتروني بتجربة استخدام سلسة</h4>
-              <div class="project-meta">واجهة متجر إلكتروني مع تركيز على وضوح المنتجات ومسار الشراء</div>
-              <p>
-                مشروع متجر إلكتروني يركز على جعل رحلة المستخدم من التصفح حتى إتمام الطلب بسيطة وواضحة،
-                مع واجهة مرتبة، وأقسام منظمة، وتدرج بصري يساعد الزائر على فهم ما يقدمه المتجر خلال ثوانٍ
-                قليلة من دخوله للموقع.
-              </p>
-              <a class="project-link" href="https://serene-hamster-a1075f.netlify.app/" target="_blank" rel="noopener">
-                زيارة المتجر
-                <span>↗</span>
-              </a>
-            </div>
-
-            <div class="services-list">
-              <h4>خدمات يمكن تنفيذها</h4>
-              <ul class="services-items">
-                <li>بناء مواقع تعريفية احترافية تعكس هوية الجهة أو الشخص بشكل واضح.</li>
-                <li>تطوير واجهات لمتاجر إلكترونية مع مسار شراء بسيط وتجربة مستخدم مريحة.</li>
-                <li>تصميم صفحات هبوط موجهة لحملات تسويقية أو منتجات محددة.</li>
-                <li>تحسين واجهات قائمة من ناحية التنظيم، الأداء، وتجربة المستخدم.</li>
-                <li>مراجعة المشاريع من زاوية أمنية على مستوى الواجهة والمنطق الظاهر للمستخدم.</li>
-              </ul>
-              <div class="services-note">
-                يمكن تخصيص الخدمة حسب طبيعة المشروع، سواء كان مشروعًا جديدًا بالكامل أو تطويرًا وتحسينًا
-                لموقع موجود مسبقًا.
+            <div>
+              <div class="services-item-title">إعداد محتوى تدريبي تقني</div>
+              <div class="services-item-note">
+                بناء دورات عملية في تطوير الويب، تركز على التطبيق الفعلي، وتساعد المتدربين على بناء مشاريع حقيقية من الصفر.
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Contact -->
-      <section id="contact" class="contact">
-        <div class="shell">
-          <div class="section-header">
-            <div class="section-kicker">تواصل</div>
-            <h2 class="section-title">لنحوّل الفكرة إلى مشروع واضح المعالم</h2>
-            <p class="section-description">
-              سواء كانت لديك فكرة في بدايتها أو مشروع قائم يحتاج إلى تطوير، يمكننا مناقشة أفضل طريقة
-              لتحويلها إلى تجربة رقمية متكاملة.
-            </p>
-          </div>
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">نماذج من العمل</div>
+          <h2 id="projects-title" class="section-title">مشروع يعكس طريقة التفكير</h2>
+        </div>
+        <p class="section-subtitle">
+          المشاريع هي أفضل طريقة لقياس جودة العمل؛ من خلالها يظهر الاهتمام بالتفاصيل، تنظيم الواجهة، وطريقة عرض المحتوى.
+        </p>
+      </div>
 
-          <div class="contact-layout">
-            <div class="contact-panel">
-              <h4>بيانات التواصل</h4>
-              <div class="contact-row">
-                <div class="contact-label">البريد الإلكتروني</div>
-                <div class="contact-value">
-                  <a href="mailto:ealg.Contact@gmail.com">ealg.Contact@gmail.com</a>
-                </div>
-              </div>
-              <div class="contact-row">
-                <div class="contact-label">رقم التواصل</div>
-                <div class="contact-value">+96h508922074</div>
-              </div>
-              <div class="contact-row">
-                <div class="contact-label">ملف تعريفي</div>
-                <div class="contact-value">
-                  <a href="https://profile.satr.codes/y50ib/public/overview" target="_blank" rel="noopener">
-                    عرض الملف في منصة سطر
-                  </a>
-                </div>
-              </div>
+      <div class="section-body">
+        <div class="project-block">
+          <div class="project-title">RAVA Store</div>
+          <p>
+            واجهة متجر إلكتروني تعكس تجربة استخدام بسيطة وواضحة، مع تنظيم جيد للأقسام، وتركيز على إبراز المحتوى
+            بطريقة مريحة للمستخدم.
+          </p>
+          <p class="project-meta">
+            يوضح المشروع طريقة التعامل مع الواجهات التجارية، وكيفية ترتيب العناصر بحيث تخدم الهدف الأساسي: التصفح السلس واتخاذ القرار بسهولة.
+          </p>
+          <a class="project-link" href="https://serene-hamster-a1075f.netlify.app/" target="_blank" rel="noopener noreferrer">
+            زيارة RAVA Store
+            <span>↗</span>
+          </a>
+        </div>
 
-              <div class="contact-links">
-                <a class="contact-link-pill" href="mailto:ealg.Contact@gmail.com">
-                  ✉️ إرسال بريد
-                </a>
-                <a class="contact-link-pill" href="https://serene-hamster-a1075f.netlify.app/" target="_blank" rel="noopener">
-                  معاينة أحد الأعمال
-                </a>
-                <a class="contact-link-pill" href="https://profile.satr.codes/y50ib/public/overview" target="_blank" rel="noopener">
-                  الاطلاع على الملف التقني
-                </a>
-              </div>
-            </div>
+        <div class="block">
+          <h3>ما الذي يميز أسلوب العمل في المشاريع؟</h3>
+          <p>
+            التركيز على أن يشعر المستخدم أن الواجهة "طبيعية"؛ لا يحتاج إلى التفكير كثيرًا ليصل لما يريد،
+            ولا يشعر أن التصميم يعيقه عن الهدف.
+          </p>
+          <p class="muted">
+            كل مشروع هو فرصة لتحسين التفاصيل: من اختيار الألوان، إلى ترتيب العناصر، إلى طريقة ظهور المحتوى على الشاشات الصغيرة.
+          </p>
+        </div>
+      </div>
+    </section>
 
-            <div class="contact-form">
-              <h4>نموذج تواصل مبدئي</h4>
-              <form onsubmit="handleForm(event)">
-                <div class="field">
-                  <label for="name">الاسم</label>
-                  <input id="name" type="text" placeholder="اكتب اسمك هنا" />
-                </div>
-                <div class="field">
-                  <label for="project">نوع المشروع</label>
-                  <input id="project" type="text" placeholder="موقع تعريفي، متجر إلكتروني، صفحة هبوط، أو غيرها" />
-                </div>
-                <div class="field">
-                  <label for="message">الفكرة أو المتطلبات</label>
-                  <textarea id="message" placeholder="شارك فكرة المشروع، الهدف منه، وأي تفاصيل مهمة"></textarea>
-                </div>
-                <button type="submit" class="btn-primary">
-                  إرسال مبدئي
-                  <span class="icon">➜</span>
-                </button>
-                <div class="form-note">
-                  النموذج تجريبي داخل الصفحة. يمكن استخدام البيانات أعلاه للتواصل المباشر عبر البريد أو
-                  أي وسيلة مناسبة.
-                </div>
-              </form>
-            </div>
+    <section id="certs" aria-labelledby="certs-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">توثيق المسار</div>
+          <h2 id="certs-title" class="section-title">شهادات تعكس عمق الاهتمام التقني</h2>
+        </div>
+        <p class="section-subtitle">
+          الشهادات هنا ليست مجرد أوراق، بل دليل على استثمار حقيقي في التعلم في مجالات مثل الذكاء الاصطناعي، إنترنت الأشياء، الأمن السيبراني، والبرمجة.
+        </p>
+      </div>
+
+      <div class="section-body">
+        <div class="block">
+          <h3>نظرة عامة</h3>
+          <p>
+            المسار التعليمي يتقاطع مع عدة مجالات تقنية متقدمة، مما يضيف بعدًا أعمق لطريقة التعامل مع مشاريع الويب
+            وربطها بتقنيات أخرى عند الحاجة.
+          </p>
+          <p class="muted">
+            هذا التنوع في الخلفية يساعد على رؤية المشروع من زوايا مختلفة: تجربة المستخدم، البنية التقنية، والأمان.
+          </p>
+        </div>
+
+        <div class="block" aria-label="معرض الشهادات">
+          <h3>بعض الشهادات</h3>
+          <div class="gallery">
+            <img src="https://i.postimg.cc/tTFGWkpY/IMG-0446.jpg" alt="شهادة 1" />
+            <img src="https://i.postimg.cc/MG2STgJR/IMG-0447.jpg" alt="شهادة 2" />
+            <img src="https://i.postimg.cc/J4MTMk4z/IMG-0448.jpg" alt="شهادة 3" />
+            <img src="https://i.postimg.cc/BQpm6nXK/IMG-0449.jpg" alt="شهادة 4" />
+            <img src="https://i.postimg.cc/02nVQybc/IMG-0450.jpg" alt="شهادة 5" />
+            <img src="https://i.postimg.cc/TY0tw3pZ/IMG-0452.jpg" alt="شهادة 6" />
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="section-header">
+        <div>
+          <div class="section-kicker">تواصل</div>
+          <h2 id="contact-title" class="section-title">قناة مفتوحة للتعاون</h2>
+        </div>
+        <p class="section-subtitle">
+          سواء كان لديك فكرة مشروع، واجهة تحتاج إعادة ترتيب، أو رغبة في محتوى تدريبي تقني، يمكن البدء برسالة بسيطة.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="contact-details" aria-label="بيانات التواصل">
+            <span>
+              <strong>البريد:</strong>
+              <a href="mailto:ealg.Contact@gmail.com">ealg.Contact@gmail.com</a>
+            </span>
+            <span>
+              <strong>الهاتف:</strong>
+              <a href="tel:+966508922074">+966 50 892 2074</a>
+            </span>
+            <span>
+              <strong>منصة سطر:</strong>
+              <a href="https://profile.satr.codes/y50ib/public/overview" target="_blank" rel="noopener noreferrer">
+                عرض الملف
+              </a>
+            </span>
+            <span>
+              <strong>مشروع:</strong>
+              <a href="https://serene-hamster-a1075f.netlify.app/" target="_blank" rel="noopener noreferrer">
+                RAVA Store
+              </a>
+            </span>
+          </div>
+          <p class="contact-note">
+            يمكن تخصيص جلسة قصيرة لمناقشة الفكرة، تحديد الاحتياج، ثم وضع خطة عمل واضحة قبل البدء في التنفيذ.
+          </p>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('يمكن ربط هذا النموذج بنقطة إرسال حقيقية لاحقًا.');">
+          <div class="contact-form-row">
+            <div>
+              <label for="name">الاسم</label>
+              <input id="name" type="text" placeholder="اكتب اسمك هنا" />
+            </div>
+            <div>
+              <label for="email">البريد الإلكتروني</label>
+              <input id="email" type="email" placeholder="example@mail.com" />
+            </div>
+          </div>
+          <div class="contact-form-row">
+            <div>
+              <label for="message">الفكرة أو الطلب</label>
+              <textarea id="message" placeholder="صف بإيجاز ما تريد تنفيذه أو سؤالك التقني."></textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary">
+            إرسال مبدئي
+            <span>➜</span>
+          </button>
+        </form>
+      </div>
+    </section>
 
     <footer>
-      <div class="shell">
-        تصميم وبناء يعكس شغفًا بتطوير الويب والأمن السيبراني · <span>عماد الغامدي</span>
+      <span>موقع شخصي بسيط يعكس طريقة التفكير في الويب أكثر من كونه مجرد سيرة ذاتية تقليدية.</span>
+      <div class="footer-links">
+        <a href="#top">العودة للأعلى</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#contact">تواصل</a>
       </div>
     </footer>
-  </div>
+  </main>
+
+  <button class="scroll-top" type="button" aria-label="العودة للأعلى">
+    ↑
+    <span>أعلى</span>
+  </button>
 
   <script>
-    function scrollToSection(id) {
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }
+    // تفعيل القائمة في الشاشات الصغيرة
+    const header = document.querySelector('header');
+    const nav = document.querySelector('.nav');
+    const menuToggle = document.querySelector('.menu-toggle');
 
-    const nav = document.getElementById("nav");
-    const navToggle = document.getElementById("navToggle");
-
-    navToggle.addEventListener("click", () => {
-      nav.classList.toggle("nav-open");
+    menuToggle.addEventListener('click', () => {
+      nav.classList.toggle('nav-open');
     });
 
-    function handleForm(e) {
-      e.preventDefault();
-      alert("تم تسجيل بياناتك مبدئيًا في هذه الصفحة. استخدم البريد أو الرقم للتواصل الفعلي.");
-    }
+    // زر العودة للأعلى
+    const scrollTopBtn = document.querySelector('.scroll-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 260) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // تمرير سلس للروابط الداخلية
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId.length > 1) {
+          e.preventDefault();
+          const target = document.querySelector(targetId);
+          if (target) {
+            const offset = header.offsetHeight + 10;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+          }
+        }
+      });
+    });
   </script>
 </body>
 </html>
